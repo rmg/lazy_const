@@ -4,7 +4,7 @@ module LazyConst
 
   def lazy_const(name, &block)
     raise Error("lazy_const requires a block") unless block_given?
-    LazyConst::CACHE.delete "#{self.name}.#{name}"
+    LazyConst::CACHE["#{self.name}.#{name}"] = nil
     define_singleton_method name do
       LazyConst::CACHE["#{self.name}.#{name}"] ||= block.call
     end
