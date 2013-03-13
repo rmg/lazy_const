@@ -8,6 +8,8 @@ A simple way of defining lazy evaluated, const-like instances of a class.
 
 == Example
 
+=== Basic Usage
+
   class Group
     extend LazyConst
     lazy_const :EVERYONE do
@@ -32,6 +34,24 @@ A simple way of defining lazy evaluated, const-like instances of a class.
     end
   end
 
+=== Testing with RSpec
+
+spec/spec_helper.rb:
+  require 'lazy_const/spec'
+
+lib/some_class.rb:
+  class SomeClass
+    extend LazyConst
+    lazy_const :IMPORTANT_INSTACE do
+      new(:hotness)
+    end
+  end
+
+spec/some_spec.rb:
+  describe MyClass do
+    defines_const :IMPORTANT_INSTANCE
+    # ...
+  end
 
 == Contributing to lazy_const
  
