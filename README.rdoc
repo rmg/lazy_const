@@ -1,6 +1,37 @@
 = lazy_const
 
-Description goes here.
+A simple way of defining lazy evaluated, const-like instances of a class.
+
+== Installation
+
+  gem 'lazy_const'
+
+== Example
+
+  class Group
+    extend LazyConst
+    lazy_const :EVERYONE do
+      new("Everyone")
+    end
+    def initialize(name)
+      @name = name
+      @members = []
+    end
+    def add_user(user)
+      @members << user
+    end
+  end
+
+  class User; end
+
+  class Registrar
+    def new_user(name)
+      user = User.new(name)
+      Group.EVERYONE.add_user(user)
+      user
+    end
+  end
+
 
 == Contributing to lazy_const
  
@@ -14,6 +45,4 @@ Description goes here.
 
 == Copyright
 
-Copyright (c) 2013 Ryan Graham. See LICENSE.txt for
-further details.
-
+Copyright (c) 2013 Ryan Graham. See LICENSE.txt for further details. (TL;DR: MIT license)
