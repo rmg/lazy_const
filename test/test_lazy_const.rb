@@ -1,6 +1,5 @@
 require 'helper'
 
-$called = 0
 class Foo
   extend LazyConst
   lazy_const :TEST do
@@ -14,6 +13,7 @@ class TestLazyConst < MiniTest::Unit::TestCase
 
   def setup
     $called = 0
+    LazyConst.clear
   end
 
   def test_lazy_const
