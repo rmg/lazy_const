@@ -8,6 +8,7 @@ source "http://rubygems.org"
 group :development do
   gem "minitest", ">= 0"
   gem "bundler"
+  gem 'rake'
   unless ENV['TRAVIS']
     gem "rdoc", "~> 3.12"
     gem "jeweler", "~> 1.8.4"
