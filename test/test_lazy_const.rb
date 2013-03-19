@@ -5,11 +5,7 @@ class Foo
   extend LazyConst
   lazy_const :TEST do
     $called += 1
-    new 42
-  end
-  attr_reader :number
-  def initialize(number)
-    @number = number
+    42
   end
 end
 
