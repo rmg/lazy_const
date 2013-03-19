@@ -3,7 +3,7 @@ module LazyConst
   CACHE = {}
 
   def meta_class
-    class << self; self end
+    @meta_class ||= class << self; self end
   end
 
   def lazy_const(name, &block)
