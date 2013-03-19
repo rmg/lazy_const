@@ -2,10 +2,14 @@ module LazyConst
 
   CACHE = {}
 
+  def meta_class
+    class << self; self end
+  end
+
   def lazy_const(name, &block)
     raise Error("lazy_const requires a block") unless block_given?
     LazyConst::CACHE["#{self.name}.#{name}"] = nil
-    define_singleton_method name do
+    meta_class.send(:define_method, name) do
       LazyConst::CACHE["#{self.name}.#{name}"] ||= block.call
     end
   end
