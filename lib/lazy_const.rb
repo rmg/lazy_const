@@ -18,7 +18,7 @@ module LazyConst
     self.clear
     LazyConst::CACHE.keys.each do |class_dot_name|
       klass, name = class_dot_name.split('.')
-      m = const_get(klass.to_sym).public_send name.to_sym
+      m = const_get(klass.to_sym).send name.to_sym
     end
   end
 
