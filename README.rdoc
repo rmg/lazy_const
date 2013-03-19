@@ -1,6 +1,6 @@
 = lazy_const
 
-[![Build Status](https://secure.travis-ci.org/rmg/feature_definitions.png?branch=master)](http://travis-ci.org/rmg/feature_definitions)
+{<img src="https://travis-ci.org/rmg/lazy_const.png?branch=master" alt="Build Status" />}[https://travis-ci.org/rmg/lazy_const]
 
 A simple way of defining lazy evaluated, const-like instances of a class.
 
